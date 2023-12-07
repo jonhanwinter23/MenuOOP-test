@@ -10,6 +10,16 @@ public class testing {
 
         cake c = new cake("Butter Cake", 20.8, "Chocoloate", "Homemade-Chocolate");
         System.out.println(c);
+
+        cake d = new cake("Cream cake", 23.4, "Strawberry", "Very creamy");
+        System.out.println(d);
+
+        tea t1 = new tea("Oolong",6.5,"Very bitter", "Leaf");
+        System.out.println(t1);
+
+        cake d1 = new cake("Orange",34.3,"Orange","Orange cake");
+        System.out.println(d1);
+
     }
     
     
