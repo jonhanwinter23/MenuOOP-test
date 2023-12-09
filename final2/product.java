@@ -1,12 +1,15 @@
 package final2;
 
 public class product {
+    static int idCounter = 0;
+    int id;
     String name;
     double price;
     String description;
 
     public product(String name, double price, String description) 
     {
+        this.id = ++idCounter;
         this.name = name;
         this.price = price;
         this.description = description;
@@ -14,10 +17,8 @@ public class product {
 
     @Override
     public String toString() {
-        String s = "The product name is: " + this.name + "Price: " + this.price + " Description: " + this.description; 
+        String s = "ID: " + this.id + " The product name is: " + this.name + " Price: " + this.price + " Description: " + this.description; 
 
         return s;
     }
-
-    
 }
