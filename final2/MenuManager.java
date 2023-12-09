@@ -1,6 +1,7 @@
 package final2;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class MenuManager {
@@ -8,11 +9,13 @@ public class MenuManager {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        List<String> itemIDs = new ArrayList<>();
         while (true) {
             System.out.println("1. Add product");
             System.out.println("2. Add tea");
             System.out.println("3. View menu");
-            System.out.println("4. Exit");
+            System.out.println("4. Purchase items");
+            System.out.println("5. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine();  // consume newline
@@ -45,7 +48,22 @@ public class MenuManager {
                 case 3:
                     printMenu();
                     break;
-                case 4:
+                    case 4:
+                    printMenu();
+                    String id;
+                    while (true) {
+                        System.out.print("Enter the ID of the item you want to purchase (or 'done' to finish): ");
+                        id = scanner.nextLine();
+                        if (id.equalsIgnoreCase("done")) {
+                            break;
+                        }
+                        itemIDs.add(id);
+                    }
+                    double total = calculateTotal(itemIDs.toArray(new String[0]));
+                    System.out.println("Your total is: " + total);
+                    printReceipt(itemIDs.toArray(new String[0]), total);
+                    break;
+                case 5:
                     System.out.println("Exiting...");
                     scanner.close();
                     System.exit(0);
@@ -77,4 +95,38 @@ public class MenuManager {
             e.printStackTrace();
         }
     }
+
+    private static double calculateTotal(String[] itemIDs) {
+        double total = 0;
+        try (BufferedReader br = new BufferedReader(new FileReader(MENU_FILE))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                for (String id : itemIDs) {
+                    if (line.startsWith("ID: " + id)) {
+                        int priceIndex = line.indexOf("Price: ") + 7;
+                        int endPriceIndex = line.indexOf(" ", priceIndex);
+                        double price = Double.parseDouble(line.substring(priceIndex, endPriceIndex));
+                        total += price;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading the file.");
+            e.printStackTrace();
+        }
+        return total;
+    }
+    private static void printReceipt(String[] itemIDs, double total) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        System.out.println("Receipt");
+        System.out.println("Date: " + formatter.format(date));
+        System.out.println("Items purchased:");
+        for (String id : itemIDs) {
+            System.out.println("ID: " + id);
+        }
+        System.out.println("Total: " + total);
+    }
 }
+
+
