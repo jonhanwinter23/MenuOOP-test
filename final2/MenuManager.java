@@ -116,17 +116,32 @@ public class MenuManager {
         }
         return total;
     }
-    private static void printReceipt(String[] itemIDs, double total) {
+   private static void printReceipt(String[] itemIDs, double total) {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = new Date();
         System.out.println("Receipt");
         System.out.println("Date: " + formatter.format(date));
         System.out.println("Items purchased:");
         for (String id : itemIDs) {
-            System.out.println("ID: " + id);
+            String itemDetails = getItemDetails(id);
+            System.out.println(itemDetails);
         }
         System.out.println("Total: " + total);
     }
-}
 
+    private static String getItemDetails(String id) {
+        try (BufferedReader br = new BufferedReader(new FileReader(MENU_FILE))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.startsWith("ID: " + id)) {
+                    return line;
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading the file.");
+            e.printStackTrace();
+        }
+        return "Item not found";
+    }
+}
 
