@@ -1,6 +1,6 @@
 package final2;
 
-public class product {
+public abstract class product {
     static int idCounter = 0;
     int id;
     String name;
@@ -21,4 +21,6 @@ public class product {
 
         return s;
     }
+
+    public abstract String getFlavor();
 }

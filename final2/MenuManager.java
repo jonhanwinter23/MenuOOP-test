@@ -11,7 +11,7 @@ public class MenuManager {
         Scanner scanner = new Scanner(System.in);
         List<String> itemIDs = new ArrayList<>();
         while (true) {
-            System.out.println("1. Add product");
+            System.out.println("1. Add cake");
             System.out.println("2. Add tea");
             System.out.println("3. View menu");
             System.out.println("4. Purchase items");
@@ -22,15 +22,17 @@ public class MenuManager {
 
             switch (choice) {
                 case 1:
-                    System.out.print("Enter product name: ");
-                    String productName = scanner.nextLine();
-                    System.out.print("Enter product price: ");
-                    double productPrice = scanner.nextDouble();
+                    System.out.print("Enter cake name: ");
+                    String cakeName = scanner.nextLine();
+                    System.out.print("Enter cake price: ");
+                    double cakePrice = scanner.nextDouble();
                     scanner.nextLine();  // consume newline
-                    System.out.print("Enter product description: ");
-                    String productDescription = scanner.nextLine();
-                    product product = new product(productName, productPrice, productDescription);
-                    appendToFile(product.toString());
+                    System.out.print("Enter cake description: ");
+                    String cakeDescription = scanner.nextLine();
+                    System.out.print("Enter cake flavor: ");
+                    String cakeFlavor = scanner.nextLine();
+                    cake cake = new cake(cakeName, cakePrice, cakeFlavor, cakeDescription);
+                    appendToFile(cake.toString());
                     break;
                 case 2:
                     System.out.print("Enter tea name: ");
@@ -48,7 +50,7 @@ public class MenuManager {
                 case 3:
                     printMenu();
                     break;
-                    case 4:
+                case 4:
                     printMenu();
                     String id;
                     while (true) {
@@ -72,6 +74,8 @@ public class MenuManager {
             }
         }
     }
+
+
 
     private static void appendToFile(String item) {
         try (FileWriter fw = new FileWriter(MENU_FILE, true);
@@ -142,6 +146,6 @@ public class MenuManager {
             e.printStackTrace();
         }
         return "Item not found";
-    }
-}
+    }}
+
 
