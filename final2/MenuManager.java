@@ -92,13 +92,15 @@ public class MenuManager {
         try (BufferedReader br = new BufferedReader(new FileReader(MENU_FILE))) {
             String line;
             while ((line = br.readLine()) != null) {
-                System.out.println(line);
+                String[] parts = line.split("/");
+                System.out.println("ID: " + parts[0] + " The product name is: " + parts[1] + " Price: " + parts[2] + " Description: " + parts[3] + " The flavor is: " + parts[4]);
             }
         } catch (IOException e) {
             System.out.println("An error occurred while reading the file.");
             e.printStackTrace();
         }
     }
+    
 
     private static double calculateTotal(String[] itemIDs) {
         double total = 0;

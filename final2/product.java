@@ -17,10 +17,9 @@ public abstract class product {
 
     @Override
     public String toString() {
-        String s = "ID: " + this.id + " The product name is: " + this.name + " Price: " + this.price + " Description: " + this.description; 
-
-        return s;
+        return id + "/" + name + "/" + price + "/" + description;
     }
+    
 
     public abstract String getFlavor();
 }

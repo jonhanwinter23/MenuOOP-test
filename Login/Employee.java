@@ -1,4 +1,4 @@
-package login;
+package Login;
 
 public class Employee {
     private String name;
@@ -22,6 +22,11 @@ public class Employee {
     public float getSalary() {
         return salary;
     }
+
+    //increase salary 
+    //updatebasesalary
+    //
+
 
 
     @Override

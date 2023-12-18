@@ -11,10 +11,9 @@ public class cake extends product{
   
     @Override
     public String toString() {
-        String s = super.toString() + "The flavor is: " + this.flavor;
-        return s;
+        return super.toString() + "/" + flavor;
     }
-
+    
     @Override
     public String getFlavor() {
         return this.flavor;
