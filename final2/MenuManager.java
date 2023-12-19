@@ -4,7 +4,7 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class MenuManager {
+public class MenuManager{
     private static final String MENU_FILE = "menu.txt";
 
     public static void main(String[] args) {
