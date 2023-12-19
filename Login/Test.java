@@ -1,4 +1,4 @@
-package Login;
+package login;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,8 +11,8 @@ public class Test {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Choose an option:");
-        System.out.println("1. Add a new barista username and password");
-        System.out.println("2. Add a new employee username and password");
+        System.out.println("1. Register a new barista");
+        System.out.println("2. Register a new employee");
         System.out.println("3. Login with an existing account");
 
         int option = sc.nextInt();
@@ -22,13 +22,13 @@ public class Test {
             String username = sc.next();
             System.out.println("Enter barista password:");
             String password = sc.next();
-            saveCredentials("Barista", username, password);
+            registerUser("Barista", username, password);
         } else if (option == 2) {
             System.out.println("Enter employee username:");
             String username = sc.next();
             System.out.println("Enter employee password:");
             String password = sc.next();
-            saveCredentials("Employee", username, password);
+            registerUser("Employee", username, password);
         } else if (option == 3) {
             System.out.println("Enter username:");
             String username = sc.next();
@@ -47,17 +47,17 @@ public class Test {
         sc.close();
     }
 
-    private static void saveCredentials(String userType, String username, String password) {
+    private static void registerUser(String userType, String username, String password) {
         try {
             FileWriter writer = new FileWriter("credentials.txt", true);
-            writer.write("User Type: " + userType + "\n");
-            writer.write("Username: " + username + "\n");
-            writer.write("Password: " + password + "\n");
+            writer.write(userType + ":");
+            writer.write(username + "/");
+            writer.write(password);
             writer.write("\n");
             writer.close();
-            System.out.println("Credentials saved successfully!");
+            System.out.println("User registered successfully!");
         } catch (IOException e) {
-            System.out.println("Failed to save credentials.");
+            System.out.println("Failed to register user.");
             e.printStackTrace();
         }
     }
@@ -67,9 +67,9 @@ public class Test {
             Scanner fileScanner = new Scanner(new File("credentials.txt"));
             while (fileScanner.hasNextLine()) {
                 String line = fileScanner.nextLine();
-                if (line.contains("Username: " + username) && fileScanner.hasNextLine()) {
+                if (line.contains(username + "/")) {
                     String passwordLine = fileScanner.nextLine();
-                    if (passwordLine.contains("Password: " + password)) {
+                    if (passwordLine.contains(password)) {
                         fileScanner.close();
                         return true;
                     }

@@ -1,9 +1,10 @@
-package Login;
+package login;
 
 public class Employee {
     private String name;
     private String password;
     private float salary;
+    private static float baseSalary;
 
     public Employee(String name, String password, float salary) {
         this.name = name;
@@ -23,11 +24,17 @@ public class Employee {
         return salary;
     }
 
-    //increase salary 
-    //updatebasesalary
-    //
+    public static float getBaseSalary() {
+        return baseSalary;
+    }
 
+    public static void setBaseSalary(float baseSalary) {
+        Employee.baseSalary = baseSalary;
+    }
 
+    public void updateSalary() {
+        salary = baseSalary;
+    }
 
     @Override
     public String toString() {
@@ -49,5 +56,4 @@ public class Employee {
     public boolean authenticate(String password) {
         return this.password.equals(password);
     }
-
 }

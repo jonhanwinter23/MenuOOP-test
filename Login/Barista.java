@@ -1,4 +1,4 @@
-package Login;
+package login;
 
 public class Barista extends Employee {
     final String position = "Barista";
