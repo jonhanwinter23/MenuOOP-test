@@ -1,6 +1,7 @@
 package final2;
 
 import java.util.List;
+// Interface
 
 public interface MenuManager1 {
     void addCake(String name, double price, String flavor, String description);
