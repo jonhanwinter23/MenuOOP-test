@@ -12,6 +12,9 @@ This project is a simple menu management system implemented in Java. It allows y
 
 - `MenuManagerImp`: This class implements the `MenuManager1` interface and provides methods for adding items to the menu, calculating the total cost of purchased items, and printing a receipt.
 
+<img width="728" alt="Screenshot 2023-12-25 at 2 38 37 PM" src="https://github.com/jonhanwinter23/MenuOOP-test/assets/108454013/40c1502d-381e-4c15-8474-fa49b9ca8d50">
+
+
 ## OOP Concepts
 
 ### Abstraction
