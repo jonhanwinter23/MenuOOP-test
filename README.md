@@ -43,6 +43,8 @@ In the `Tea` class, the `getDetails()` method is overridden to include the `flav
 
 - Print receipt: You can print a receipt that includes the date, the details of the purchased items, and the total cost.
 
+below is simple user cases diagram:
+
 <img width="458" alt="Screenshot 2023-12-25 at 2 51 11 PM" src="https://github.com/jonhanwinter23/MenuOOP-test/assets/108454013/83208e48-ae66-4e64-a83a-553035ea9f06">
 
 
