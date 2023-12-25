@@ -10,6 +10,25 @@ This is a simple menu management system implemented in Java. It allows you to ad
 
 - `MenuManagerImp`: This class implements the `MenuManager1` interface and provides methods for adding items to the menu, calculating the total cost of purchased items, and printing a receipt.
 
+## OOP Concepts
+
+### Abstraction
+
+The `product` class is an abstract class that represents a generic product in the menu. It provides a blueprint for creating more specific product types like `tea` and `cake`.
+
+### Inheritance
+
+The `tea` and `cake` classes are subclasses of `product`. They inherit all the properties and methods of the `product` class and add a `flavor` attribute, which is specific to these types of products.
+
+### Polymorphism
+
+The `product` class has an abstract method `getFlavor()`, which is overridden in the `tea` and `cake` classes. This is an example of polymorphism, as the method behaves differently depending on whether it's called on a `tea` or `cake` object.
+
+### Encapsulation
+
+The `product`, `tea`, and `cake` classes encapsulate the data (attributes like `id`, `name`, `price`, `description`, and `flavor`) and the operations that can be performed on this data (methods like `toString()` and `getFlavor()`). The attributes are declared as `private`, which means they can only be accessed within the class they are declared. This is a key aspect of encapsulation.
+
+
 ## Features
 
 - Add items to the menu: You can add tea and cake items to the menu. Each item has a name, a price, a flavor, and a description.
