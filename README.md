@@ -24,7 +24,7 @@ The `tea` and `cake` classes are subclasses of `product`. They inherit all the p
 
 ### Polymorphism
 
-The `Product` class has an abstract method `getDetails()`, which is overridden in the `Tea` class. This is an example of polymorphism, as the method behaves differently depending on whether it's called on a `Product` or `Tea` object.
+The `Product` class has an abstract method `getDetails()`, which is overridden in the `Tea` class. This is an example of polymorphism, as the method behaves differently depending on whether it's called on a `Product` or `Tea` object. In the `Product`, `Tea`, and `Cake` classes, overloading is demonstrated in the constructors. Each class has two constructors: one that takes three parameters and another that takes two parameters. The constructor with two parameters sets a default value for the `description` in the `Product` class and for the `flavor` in the `Tea` and `Cake` classes. This is a classic example of overloading.
 
 ### Encapsulation
 
