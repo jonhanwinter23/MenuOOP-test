@@ -22,13 +22,13 @@ The `product` class is an abstract class that represents a generic product in th
 
 The `tea` and `cake` classes are subclasses of `product`. They inherit all the properties and methods of the `product` class and add a `flavor` attribute, which is specific to these types of products.
 
-### Polymorphism
+###Polymorphism
+The Product class has an abstract method getDetails(), which is overridden in the Tea class. This is an example of polymorphism, as the method behaves differently depending on whether it’s called on a Product or Tea object.
 
-The `product` class has an abstract method `getFlavor()`, which is overridden in the `tea` and `cake` classes. This is an example of polymorphism, as the method behaves differently depending on whether it's called on a `tea` or `cake` object.
+###Encapsulation
+The Product and Tea classes encapsulate the data (attributes like id, name, price, description, and flavor) and the operations that can be performed on this data (methods like toString() and getDetails()). The attributes are declared as private, which means they can only be accessed within the class they are declared. This is a key aspect of encapsulation.
 
-### Encapsulation
-
-The `product`, `tea`, and `cake` classes encapsulate the data (attributes like `id`, `name`, `price`, `description`, and `flavor`) and the operations that can be performed on this data (methods like `toString()` and `getFlavor()`). The attributes are declared as `private`, which means they can only be accessed within the class they are declared. This is a key aspect of encapsulation.
+In the Tea class, the getDetails() method is overridden to include the flavor of the tea in addition to the details provided by the getDetails() method in the Product class. This allows for more specific information to be returned for tea products.
 
 
 ## Features
