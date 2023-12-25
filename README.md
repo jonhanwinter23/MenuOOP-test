@@ -43,6 +43,10 @@ In the `Tea` class, the `getDetails()` method is overridden to include the `flav
 
 - Print receipt: You can print a receipt that includes the date, the details of the purchased items, and the total cost.
 
+<img width="458" alt="Screenshot 2023-12-25 at 2 51 11 PM" src="https://github.com/jonhanwinter23/MenuOOP-test/assets/108454013/83208e48-ae66-4e64-a83a-553035ea9f06">
+
+
+
 ## File I/O
 
 The program uses file I/O to persist the menu across different runs of the program. The menu is stored in a text file, and each line in the file represents an item in the menu.
