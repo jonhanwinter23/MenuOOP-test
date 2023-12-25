@@ -1,6 +1,8 @@
 # Menu Management System
 
-This is a simple menu management system implemented in Java. It allows you to add items to a menu, calculate the total cost of purchased items, and print a receipt.
+## Introduction
+
+This project is a simple menu management system implemented in Java. It allows you to add items to a menu, calculate the total cost of purchased items, and print a receipt. The system is designed with a focus on Object-Oriented Programming (OOP) principles.
 
 ## Classes
 
