@@ -2,9 +2,16 @@ package final2;
 
 public class tea extends product {
 
-    String flavor;
+    private String flavor;
+    
     public tea(String name, double price, String description, String flavor) {
         super(name, price, description);
+        this.flavor = flavor;
+    }
+
+    // Overloaded constructor
+    public tea(String name, double price, String flavor) {
+        super(name, price);
         this.flavor = flavor;
     }
 
@@ -13,10 +20,9 @@ public class tea extends product {
         return super.toString() + "/" + flavor;
     }
     
-
-    @Override
-    public String getFlavor() {
-        return this.flavor;
-    }
    
+    @Override
+    public String getDetails() {
+        return super.getDetails() + ", Flavor: " + flavor;
+    }
 }

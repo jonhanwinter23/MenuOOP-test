@@ -1,11 +1,11 @@
 package final2;
 
 public abstract class product {
-    static int idCounter = 0;
-    int id;
-    String name;
-    double price;
-    String description;
+    private static int idCounter = 0;
+    private int id;
+    private String name;
+    private double price;
+    private String description;
 
     public product(String name, double price, String description) 
     {
@@ -15,11 +15,22 @@ public abstract class product {
         this.description = description;
     }
 
+    // Overloaded constructor
+    public product(String name, double price) 
+    {
+        this.id = ++idCounter;
+        this.name = name;
+        this.price = price;
+        this.description = "No description available";
+    }
+
+    public String getDetails() {
+        return "ID: " + id + ", Name: " + name + ", Price: " + price + ", Description: " + description;
+    }
+
     @Override
     public String toString() {
         return id + "/" + name + "/" + price + "/" + description;
     }
-    
-
-    public abstract String getFlavor();
 }
+    

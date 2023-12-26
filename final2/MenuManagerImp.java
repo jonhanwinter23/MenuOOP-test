@@ -5,7 +5,6 @@ import java.util.*;
 
 public class MenuManagerImp implements MenuManager1 {
     private static final String MENU_FILE = "menu.txt";
-    private List<String> itemIDs = new ArrayList<>();
 
     @Override
     public void addCake(String name, double price, String flavor, String description) {
@@ -15,9 +14,15 @@ public class MenuManagerImp implements MenuManager1 {
 
     @Override
     public void addTea(String name, double price, String flavor, String description) {
+    if (description == null || description.isEmpty()) {
+        tea tea = new tea(name, price, flavor);
+        appendToFile(tea.toString());
+    } else {
         tea tea = new tea(name, price, description, flavor);
         appendToFile(tea.toString());
     }
+}
+
 
     @Override
     public void viewMenu() {
@@ -48,13 +53,21 @@ public class MenuManagerImp implements MenuManager1 {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split("/");
-                System.out.println("ID: " + parts[0] + " The product name is: " + parts[1] + " Price: " + parts[2] + " Description: " + parts[3] + " The flavor is: " + parts[4]);
+                String output = "ID: " + parts[0] + " The product name is: " + parts[1] + " Price: " + parts[2];
+                if (parts.length > 3) {
+                    output += " Description: " + parts[3];
+                }
+                if (parts.length > 4) {
+                    output += " The flavor is: " + parts[4];
+                }
+                System.out.println(output);
             }
         } catch (IOException e) {
             System.out.println("An error occurred while reading the file.");
             e.printStackTrace();
         }
     }
+    
     private static double calculateTotal(String[] itemIDs) {
         double total = 0;
         try (BufferedReader br = new BufferedReader(new FileReader(MENU_FILE))) {
@@ -72,7 +85,7 @@ public class MenuManagerImp implements MenuManager1 {
             System.out.println("An error occurred while reading the file.");
             e.printStackTrace();
         }
-        total = Math.round(total * 100.0) / 100.0; // Add this line here
+        total = Math.round(total * 100.0) / 100.0; 
         return total;
     }
     
@@ -102,7 +115,7 @@ private static String getItemDetails(String id) {
     try (BufferedReader br = new BufferedReader(new FileReader(MENU_FILE))) {
         String line;
         while ((line = br.readLine()) != null) {
-            if (line.startsWith(id + "/")) { // Changed the startsWith check to match the format of your menu file
+            if (line.startsWith(id + "/")) { 
                 return line;
             }
         }

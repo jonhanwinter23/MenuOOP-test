@@ -1,7 +1,7 @@
 package final2;
 
 public class cake extends product{
-    String flavor;
+    private String flavor;
 
     public cake(String name, double price, String flavor, String description) {
         super(name, price, description);
@@ -13,9 +13,9 @@ public class cake extends product{
     public String toString() {
         return super.toString() + "/" + flavor;
     }
-    
+
     @Override
-    public String getFlavor() {
-        return this.flavor;
+    public String getDetails() {
+        return super.getDetails() + ", Flavor: " + flavor;
     }
 }
