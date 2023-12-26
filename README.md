@@ -1,93 +1,65 @@
-# MenuOOP-test
-OOC Project:
-Coffee Shop Management System 
+# Menu Management System
 
-Introduction: 
+## Introduction
 
-By implementing object oriented programming concepts, our team decided to work on a Coffee Shop management system, aiming to develop a web application interface in which users as coffee shop owners can interact. With menu display categories available to make an order in the coffee shop user as cashier role can click on the food or drink consumer make order, the system will calculate total price and print out the predefined receipt. Owners might be able to add more drinks and food types in the menu available in the shop's own database. 
+This project is a simple menu management system implemented in Java. It allows you to add items to a menu, calculate the total cost of purchased items, and print a receipt. The system is designed with a focus on Object-Oriented Programming (OOP) principles.
 
-Implementation:
-Use-Case diagram 
-<img width="592" alt="image" src="https://github.com/jonhanwinter23/MenuOOP-test/assets/101129422/4f4820fe-7e13-4172-9838-665b7994ee22">
+## Classes
 
-Class Diagram 
-<img width="593" alt="image" src="https://github.com/jonhanwinter23/MenuOOP-test/assets/101129422/fe4938de-4153-462e-998a-6aaccfad575d">
+- `product`: This is an abstract class that represents a product in the menu. Each product has an ID, a name, a price, and a description. The ID is automatically generated when a product is created.
 
+- `tea` and `cake`: These are subclasses of `product` that represent specific types of products. They add a `flavor` attribute to the product.
 
+- `MenuManagerImp`: This class implements the `MenuManager1` interface and provides methods for adding items to the menu, calculating the total cost of purchased items, and printing a receipt.
 
-Implementation 
-1. Class : Beverage 
-1. Class: Product
-Field:
-- ProductID (int): an integer representing the unique identifier for a product.
-- ProductName (string): a string representing the name of the product.
-- ProductCategory (string): a string representing the category to which the product belongs.
-- ProductPrice (double): a decimal number representing the price of the product.
-Method:
-- addPro(): Adds a new product to the system.
-- deletePro(): Removes a product from the system.
-- editPro(): Modifies the details of a product.
-- getId(): Returns the ID of the product.
-- getName(): Returns the name of the product.
-- getCategory(): Returns the category of the product.
-- getPrice(): Returns the price of the product.
+<img width="728" alt="Screenshot 2023-12-25 at 2 38 37 PM" src="https://github.com/jonhanwinter23/MenuOOP-test/assets/108454013/40c1502d-381e-4c15-8474-fa49b9ca8d50">
 
 
-		2. Class: Sell
-		Field:
-- invoiceID (int): an integer representing the unique identifier for a sell transaction.
-- sellerID (int): an integer representing the ID of the seller associated with the sell transaction.
-- transactionDate (date): a date object representing the date of the sell transaction.
-- productList: an array or list containing the products sold and their quantities.
+## OOP Concepts
 
-Methods:
-- getProductInfo(): retrieves and returns information about the products sold in the transaction.
-- addToBill(): adds a product and its quantity to the bill system.
-- calculateTotal(): counts the added products and calculates the total price of the bill.
-- printBill(): retrieves the bill information, including product data, quantities, prices, and the total amount.
+### Abstraction
 
+The `product` class is an abstract class that represents a generic product in the menu. It provides a blueprint for creating more specific product types like `tea` and `cake`.
 
-3. Class: Billrecord
-Field:
-- invoiceID (int): an integer representing the unique identifier for a bill record.
-- date (date): a date object representing the date of the bill record.
+### Inheritance
 
-Methods:
-- getInvoiceId(): returns the ID of the bill record.
-- setInvoiceId(): sets the ID of the bill record.
-- getInvoiceDate(): returns the date of the bill record.
-- setInvoiceDate(): sets the date of the bill record.
-- getTransactionInfo(): retrieves and returns the information related to the transaction record in the bill.
-- setTransactionInfo(): sets the transaction information in the bill record.
+The `tea` and `cake` classes are subclasses of `product`. They inherit all the properties and methods of the `product` class and add a `flavor` attribute, which is specific to these types of products.
 
-Main Method
-The main method is the entry point of the program. It creates a Scanner object for reading user input and a MenuManagerImp object for managing the menu. It then enters a loop where it displays a menu of choices to the user and performs actions based on the user’s choice.
+### Polymorphism
 
-Here’s a brief description of each choice:
+The `Product` class has an abstract method `getDetails()`, which is overridden in the `Tea` class. This is an example of polymorphism, as the method behaves differently depending on whether it's called on a `Product` or `Tea` object. In the `Product`, `Tea`, and `Cake` classes, overloading is demonstrated in the constructors. Each class has two constructors: one that takes three parameters and another that takes two parameters. The constructor with two parameters sets a default value for the `description` in the `Product` class and for the `flavor` in the `Tea` and `Cake` classes. This is a classic example of overloading.
 
-Add cake: Prompts the user to enter details about a cake (name, price, description, flavor), and adds the cake to the menu.
-Add tea: Prompts the user to enter details about a tea (name, price, description, flavor), and adds the tea to the menu.
-View menu: Displays the current menu to the user.
-Purchase items: Prompts the user to enter the IDs of the items they want to purchase, calculates the total price, and prints a receipt.
-Exit: Exits the program.
-If the user enters an invalid choice, the program displays an error message and prompts the user to try again.
+### Encapsulation
 
-MenuManagerImp Class
-The MenuManagerImp class is responsible for managing the menu. It provides methods for adding items to the menu, viewing the menu, and purchasing items from the menu.
+The `Product` and `Tea` classes encapsulate the data (attributes like `id`, `name`, `price`, `description`, and `flavor`) and the operations that can be performed on this data (methods like `toString()` and `getDetails()`). The attributes are declared as private, which means they can only be accessed within the class they are declared. This is a key aspect of encapsulation.
 
-Here’s a brief description of each method:
+In the `Tea` class, the `getDetails()` method is overridden to include the `flavor` of the tea in addition to the details provided by the `getDetails()` method in the `Product` class. This allows for more specific information to be returned for tea products. 
 
-addCake: Adds a cake to the menu. It takes the cake’s name, price, flavor, and description as parameters.
-addTea: Adds a tea to the menu. It takes the tea’s name, price, description, and flavor as parameters.
-viewMenu: Reads the menu from a file and displays it to the user.
-purchaseItems: Takes a list of item IDs as a parameter, calculates the total price of the items, and prints a receipt.
-Note
-This program reads and writes to a file named “menu.txt” to store the menu. Make sure this file exists in the same directory as your program, and that your program has permission to read and write to this file. If the file does not exist, the program will not be able to display or update the menu. If you encounter any issues, feel free to ask for further assistance. Remember to handle the file with care and ensure it’s saved in a secure location, especially if it contains sensitive information.
+## Features
+
+- Add items to the menu: You can add tea and cake items to the menu. Each item has a name, a price, a flavor, and a description.
+
+- Calculate total cost: You can calculate the total cost of purchased items by providing their IDs.
+
+- Print receipt: You can print a receipt that includes the date, the details of the purchased items, and the total cost.
+
+below is simple user cases diagram:
+
+<img width="458" alt="Screenshot 2023-12-25 at 2 51 11 PM" src="https://github.com/jonhanwinter23/MenuOOP-test/assets/108454013/83208e48-ae66-4e64-a83a-553035ea9f06">
 
 
 
+## File I/O
 
+The program uses file I/O to persist the menu across different runs of the program. The menu is stored in a text file, and each line in the file represents an item in the menu.
 
+## Exception Handling
+
+The program uses exception handling to deal with potential I/O errors. If an I/O operation fails (for example, if the file doesn't exist or can't be opened), the program will print an error message and the stack trace of the exception.
+
+## How to Run
+
+To run the program, simply execute the `main` method in the `MenuManagerImp` class. The program will display a menu that allows you to add items, view the menu, purchase items, and exit the program.
 
 
 
