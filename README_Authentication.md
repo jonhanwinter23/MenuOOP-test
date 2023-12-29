@@ -5,8 +5,6 @@ This repository contains a simple Java implementation of an Employee Management 
 
 ## Table of Contents
 
-# Table of Contents
-
 1. [SuperClass: Employee Management System](#superclass-employee-management-system)
    - [Overview](#overview)
    - [Installation](#installation)
