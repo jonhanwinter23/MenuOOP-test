@@ -1,7 +1,5 @@
-
-# SuperClass: Employee Management System
-
-This repository contains a simple Java implementation of an Employee Management System. The system is designed to manage employee information such as name, password, and salary. It also includes functionality for updating the base salary for all employees.
+# Introduction to Authentication in Employee Management System
+Authentication is a crucial aspect of the Employee Management System, ensuring that only authorized individuals have access to sensitive employee information and system functionalities. In this system, authentication is implemented to verify the identity of users, allowing them to log in securely and perform actions based on their role.# Employee Management System
 
 ## Table of Contents
 
