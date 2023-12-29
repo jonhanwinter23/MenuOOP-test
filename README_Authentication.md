@@ -25,6 +25,10 @@ Authentication is a crucial aspect of the Employee Management System, ensuring t
    - [Exception Handling](#exception-handling)
    - [Note](#note-1)
 
+# Employee Management System
+
+This repository contains a simple Java implementation of an Employee Management System. The system is designed to manage employee information such as name, password, and salary. It also includes functionality for updating the base salary for all employees.
+
 ## Overview
 
 The `Employee` class is the core component of this system. It encapsulates employee details, including name, password, and salary. The system allows you to set and retrieve a base salary that will be applied to all employees.
