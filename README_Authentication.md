@@ -3,7 +3,7 @@ Authentication is a crucial aspect of the Employee Management System, ensuring t
 
 ## Table of Contents
 
-1. [SuperClass: Employee Management System](#superclass-employee-management-system)
+1. [Employee Management System](#superclass-employee-management-system)
    - [Overview](#overview)
    - [Installation](#installation)
    - [Usage](#usage)
