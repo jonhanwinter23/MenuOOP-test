@@ -5,11 +5,29 @@ This repository contains a simple Java implementation of an Employee Management 
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+# Table of Contents
+
+1. [SuperClass: Employee Management System](#superclass-employee-management-system)
+   - [Overview](#overview)
+   - [Installation](#installation)
+   - [Usage](#usage)
+   - [Contributing](#contributing)
+   - [License](#license)
+
+2. [Barista Class in Employee Management System](#barista-class-in-employee-management-system)
+   - [Barista Class](#barista-class)
+     - [Fields](#fields)
+     - [Constructors](#constructors)
+     - [Methods](#methods)
+   - [Example Usage](#example-usage)
+   - [Note](#note)
+
+3. [Employee Management System Test Application](#employee-management-system-test-application)
+   - [Usage](#usage-1)
+   - [Options](#options)
+   - [File Structure](#file-structure)
+   - [Exception Handling](#exception-handling)
+   - [Note](#note-1)
 
 ## Overview
 
