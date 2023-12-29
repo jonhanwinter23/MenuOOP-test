@@ -1,4 +1,4 @@
-# Introduction to Authentication in Employee Management System
+# Authentication in Coffee Shop Management System
 Authentication is a crucial aspect of the Employee Management System, ensuring that only authorized individuals have access to sensitive employee information and system functionalities. In this system, authentication is implemented to verify the identity of users, allowing them to log in securely and perform actions based on their role.# Employee Management System
 
 ## Table of Contents
