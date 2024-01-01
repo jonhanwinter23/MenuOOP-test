@@ -4,7 +4,7 @@ public abstract class product {
     private static int idCounter = 0;
     private int id;
     private String name;
-    private double price;
+    protected double price;
     private String description;
 
     public product(String name, double price, String description) 

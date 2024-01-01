@@ -2,26 +2,30 @@ package final2;
 import java.text.SimpleDateFormat;
 import java.io.*;
 import java.util.*;
+import java.util.stream.Collectors;
+
+
 
 public class MenuManagerImp implements MenuManager1 {
     private static final String MENU_FILE = "menu.txt";
 
     @Override
-    public void addCake(String name, double price, String flavor, String description) {
-        cake cake = new cake(name, price, flavor, description);
+    public void addCake(String name, double price, String flavor, String description, String size) { // Added size parameter
+        cake cake = new cake(name, price, flavor, description, size); // Added size argument
         appendToFile(cake.toString());
     }
 
     @Override
     public void addTea(String name, double price, String flavor, String description) {
-    if (description == null || description.isEmpty()) {
-        tea tea = new tea(name, price, flavor);
-        appendToFile(tea.toString());
-    } else {
-        tea tea = new tea(name, price, description, flavor);
-        appendToFile(tea.toString());
+        if (description == null || description.isEmpty()) {
+            tea tea = new tea(name, price, flavor);
+            appendToFile(tea.toString());
+        } else {
+            tea tea = new tea(name, price, description, flavor);
+            appendToFile(tea.toString());
+        }
     }
-}
+
 
 
     @Override
@@ -53,12 +57,15 @@ public class MenuManagerImp implements MenuManager1 {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split("/");
-                String output = "ID: " + parts[0] + " The product name is: " + parts[1] + " Price: " + parts[2];
+                String output = "ID: " + parts[0] + ", The product name is: " + parts[1] + ", Price: " + parts[2];
                 if (parts.length > 3) {
-                    output += " Description: " + parts[3];
+                    output += ", Description: " + parts[3];
                 }
                 if (parts.length > 4) {
-                    output += " The flavor is: " + parts[4];
+                    output += ", The flavor is: " + parts[4];
+                }
+                if (parts.length > 5) {  // Added size output
+                    output += ", Size: " + parts[5];
                 }
                 System.out.println(output);
             }
@@ -67,6 +74,7 @@ public class MenuManagerImp implements MenuManager1 {
             e.printStackTrace();
         }
     }
+    
     
     private static double calculateTotal(String[] itemIDs) {
         double total = 0;
@@ -111,7 +119,7 @@ public class MenuManagerImp implements MenuManager1 {
         }
     }
     
-private static String getItemDetails(String id) {
+    private static String getItemDetails(String id) {
     try (BufferedReader br = new BufferedReader(new FileReader(MENU_FILE))) {
         String line;
         while ((line = br.readLine()) != null) {
@@ -125,6 +133,28 @@ private static String getItemDetails(String id) {
     }
     return "Item not found";
 }
+
+public void searchItem(String itemName) {
+    try (BufferedReader br = new BufferedReader(new FileReader(MENU_FILE))) {
+        String line;
+        List<String> items = new ArrayList<>();
+        while ((line = br.readLine()) != null) {
+            items.add(line);
+        }
+        List<String> foundItems = items.stream()
+            .filter(item -> item.contains(itemName))
+            .collect(Collectors.toList());  // Collect the found items into a list
+        if (foundItems.isEmpty()) {  // If the list is empty, no items were found
+            System.out.println("Item not found.");
+        } else {
+            foundItems.forEach(System.out::println);
+        }
+    } catch (IOException e) {
+        System.out.println("An error occurred while reading the file.");
+        e.printStackTrace();
+    }
+}
+
 public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     MenuManagerImp menuManager = new MenuManagerImp();
@@ -134,7 +164,8 @@ public static void main(String[] args) {
         System.out.println("2. Add tea");
         System.out.println("3. View menu");
         System.out.println("4. Purchase items");
-        System.out.println("5. Exit");
+        System.out.println("5. Search item");  // Added search item option
+        System.out.println("6. Exit");
         System.out.print("Enter your choice: ");
         int choice = scanner.nextInt();
         scanner.nextLine();  // consume newline
@@ -150,7 +181,9 @@ public static void main(String[] args) {
                 String cakeDescription = scanner.nextLine();
                 System.out.print("Enter cake flavor: ");
                 String cakeFlavor = scanner.nextLine();
-                menuManager.addCake(cakeName, cakePrice, cakeFlavor, cakeDescription);
+                System.out.print("Enter cake size: ");  // Added size input
+                String cakeSize = scanner.nextLine();  // Added size input
+                menuManager.addCake(cakeName, cakePrice, cakeFlavor, cakeDescription, cakeSize);  // Added size argument
                 break;
             case 2:
                 System.out.print("Enter tea name: ");
@@ -167,7 +200,7 @@ public static void main(String[] args) {
             case 3:
                 menuManager.viewMenu();
                 break;
-                case 4:
+            case 4:
                 menuManager.viewMenu();  // This line prints the menu
                 List<String> itemIDs = new ArrayList<>();
                 String id;
@@ -181,17 +214,17 @@ public static void main(String[] args) {
                 }
                 menuManager.purchaseItems(itemIDs);
                 break;
-            
-            case 5:
+            case 5:  // Added search item case
+                System.out.print("Enter item name to search: ");
+                String itemName = scanner.nextLine();
+                menuManager.searchItem(itemName);
+                break;
+            case 6:
                 System.out.println("Exiting...");
                 scanner.close();
                 System.exit(0);
             default:
                 System.out.println("Invalid choice. Please try again.");
-            }
         }
     }
-}
-
-    
-
+}}
