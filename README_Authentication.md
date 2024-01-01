@@ -1,15 +1,33 @@
-
-# SuperClass: Employee Management System
-
-This repository contains a simple Java implementation of an Employee Management System. The system is designed to manage employee information such as name, password, and salary. It also includes functionality for updating the base salary for all employees.
+# Authentication in Coffee Shop Management System
+Authentication is a crucial aspect of the Employee Management System, ensuring that only authorized individuals have access to sensitive employee information and system functionalities. In this system, authentication is implemented to verify the identity of users, allowing them to log in securely and perform actions based on their role.
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+1. [Employee Management System](#superclass-employee-management-system)
+   - [Overview](#overview)
+   - [Installation](#installation)
+   - [Usage](#usage)
+   - [Contributing](#contributing)
+   - [License](#license)
+
+2. [Barista Class in Employee Management System](#barista-class-in-employee-management-system)
+   - [Barista Class](#barista-class)
+     - [Fields](#fields)
+     - [Constructors](#constructors)
+     - [Methods](#methods)
+   - [Example Usage](#example-usage)
+   - [Note](#note)
+
+3. [Employee Management System Test Application](#employee-management-system-test-application)
+   - [Usage](#usage-1)
+   - [Options](#options)
+   - [File Structure](#file-structure)
+   - [Exception Handling](#exception-handling)
+   - [Note](#note-1)
+
+# Employee Management System
+
+This repository contains a simple Java implementation of an Employee Management System. The system is designed to manage employee information such as name, password, and salary. It also includes functionality for updating the base salary for all employees.
 
 ## Overview
 
