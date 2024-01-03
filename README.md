@@ -167,10 +167,6 @@ ista username.
 
 # Menu Management System
 
-## Introduction
-
-This project is a simple menu management system implemented in Java. It allows you to add items to a menu, calculate the total cost of purchased items, and print a receipt. The system is designed with a focus on Object-Oriented Programming (OOP) principles.
-
 ## Classes
 
 - `product`: This is an abstract class that represents a product in the menu. Each product has an ID, a name, a price, and a description. The ID is automatically generated when a product is created.
