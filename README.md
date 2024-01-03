@@ -1,31 +1,26 @@
-# Authentication in Coffee Shop Management System
-Authentication is a crucial aspect of the Employee Management System, ensuring that only authorized individuals have access to sensitive employee information and system functionalities. In this system, authentication is implemented to verify the identity of users, allowing them to log in securely and perform actions based on their role.
+# Introduction of Menu Management System
+
+This project is a simple menu management system implemented in Java. It allows you to add items to a menu, calculate the total cost of purchased items, and print a receipt. The system is designed with a focus on Object-Oriented Programming (OOP) principles.
 
 ## Table of Contents
+1. Authentication in Coffee Shop Management System
+   
+   1.1. [Barista Class in Employee Management System](#barista-class-in-employee-management-system)
+      - [Barista Class](#barista-class)
+        - [Fields](#fields)
+        - [Constructors](#constructors)
+        - [Methods](#methods)
+      - [Example Usage](#example-usage)
+      - [Note](#note)
+   
+   1.2. [Employee Management System Test Application](#employee-management-system-test-application)
+      - [Usage](#usage-1)
+      - [Options](#options)
+      - [File Structure](#file-structure)
+      - [Exception Handling](#exception-handling)
+      - [Note](#note-1)
 
-1. [Employee Management System](#employee-management-system)
-   - [Overview](#overview)
-   - [Installation](#installation)
-   - [Usage](#usage)
-   - [Contributing](#contributing)
-   - [License](#license)
-
-2. [Barista Class in Employee Management System](#barista-class-in-employee-management-system)
-   - [Barista Class](#barista-class)
-     - [Fields](#fields)
-     - [Constructors](#constructors)
-     - [Methods](#methods)
-   - [Example Usage](#example-usage)
-   - [Note](#note)
-
-3. [Employee Management System Test Application](#employee-management-system-test-application)
-   - [Usage](#usage-1)
-   - [Options](#options)
-   - [File Structure](#file-structure)
-   - [Exception Handling](#exception-handling)
-   - [Note](#note-1)
-
-4. [Menu Management System](#menu-management-system)
+3. [Menu Management System](#menu-management-system)
    - [Introduction](#introduction)
    - [Classes](#classes)
    - [OOP Concepts](#oop-concepts)
@@ -34,11 +29,14 @@ Authentication is a crucial aspect of the Employee Management System, ensuring t
    - [Exception Handling](#exception-handling-1)
    - [How to Run](#how-to-run)
 
-# Employee Management System
+# Authentication in Coffee Shop Management System
+Authentication is a crucial aspect of the Employee Management System, ensuring that only authorized individuals have access to sensitive employee information and system functionalities. In this system, authentication is implemented to verify the identity of users, allowing them to log in securely and perform actions based on their role.
+
+## Employee Management System
 
 This repository contains a simple Java implementation of an Employee Management System. The system is designed to manage employee information such as name, password, and salary. It also includes functionality for updating the base salary for all employees.
 
-## Overview
+### Overview
 
 The `Employee` class is the core component of this system. It encapsulates employee details, including name, password, and salary. The system allows you to set and retrieve a base salary that will be applied to all employees.
 
@@ -67,57 +65,6 @@ The `Employee` class is the core component of this system. It encapsulates emplo
 - `equals(Object obj)`: Checks if two employees are equal based on their name and password.
 - `authenticate(String password)`: Authenticates the employee based on the provided password.
 
-## Installation
-
-To use this Employee Management System in your Java project, follow these steps:
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-username/employee-management-system.git
-   ```
-
-2. Include the `Employee.java` file in your project.
-
-## Usage
-
-1. Create an instance of the `Employee` class for each employee:
-
-   ```java
-   Employee employee1 = new Employee("John Doe", "password123", 50000.0f);
-   ```
-
-2. Set the base salary applicable to all employees:
-
-   ```java
-   Employee.setBaseSalary(55000.0f);
-   ```
-
-3. Update the salary of each employee based on the new base salary:
-
-   ```java
-   employee1.updateSalary();
-   ```
-
-4. Access employee information:
-
-   ```java
-   System.out.println(employee1.toString());
-   ```
-
-   Output:
-
-   ```
-   Employee [name=John Doe, password=password123, salary=55000.0]
-   ```
-
-## Contributing
-
-If you want to contribute to this project, feel free to fork the repository and submit a pull request. Your contributions are highly appreciated.
-
-## License
-
-This Employee Management System is open-source and available under the [MIT License](LICENSE). Feel free to use, modify, and distribute the code for your purposes.
 
 # Barista Class in Employee Management System
 
