@@ -3,7 +3,7 @@
 This project is a simple menu management system implemented in Java. It allows you to add items to a menu, calculate the total cost of purchased items, and print a receipt. The system is designed with a focus on Object-Oriented Programming (OOP) principles.
 
 ## Table of Contents
-1. Authentication in Coffee Shop Management System
+1. [Authentication in Coffee Shop Management System](#authentication-in-coffee-shop-management-system)
    
    1.1. [Barista Class in Employee Management System](#barista-class-in-employee-management-system)
       - [Barista Class](#barista-class)
@@ -20,7 +20,7 @@ This project is a simple menu management system implemented in Java. It allows y
       - [Exception Handling](#exception-handling)
       - [Note](#note-1)
 
-3. [Menu Management System](#menu-management-system)
+2. [Menu Management System](#menu-management-system)
    - [Introduction](#introduction)
    - [Classes](#classes)
    - [OOP Concepts](#oop-concepts)
