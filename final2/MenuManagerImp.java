@@ -16,12 +16,12 @@ public class MenuManagerImp implements MenuManager1 {
     }
 
     @Override
-    public void addTea(String name, double price, String flavor, String description) {
+    public void addTea(String name, double price,String description) {
         if (description == null || description.isEmpty()) {
-            tea tea = new tea(name, price, flavor);
+            tea tea = new tea(name, price);
             appendToFile(tea.toString());
         } else {
-            tea tea = new tea(name, price, description, flavor);
+            tea tea = new tea(name, price, description);
             appendToFile(tea.toString());
         }
     }
@@ -134,6 +134,7 @@ public class MenuManagerImp implements MenuManager1 {
     return "Item not found";
 }
 
+// Implement Lamda Expression
 public void searchItem(String itemName) {
     try (BufferedReader br = new BufferedReader(new FileReader(MENU_FILE))) {
         String line;
@@ -193,9 +194,7 @@ public static void main(String[] args) {
                 scanner.nextLine();  // consume newline
                 System.out.print("Enter tea description: ");
                 String teaDescription = scanner.nextLine();
-                System.out.print("Enter tea flavor: ");
-                String teaFlavor = scanner.nextLine();
-                menuManager.addTea(teaName, teaPrice, teaDescription, teaFlavor);
+                menuManager.addTea(teaName, teaPrice, teaDescription);
                 break;
             case 3:
                 menuManager.viewMenu();

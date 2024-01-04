@@ -13,7 +13,7 @@ public class cake extends product{
 
     @Override
     public String toString() {
-        return super.toString() + "/" + flavor + "/" + size; // Added size
+        return super.toString() + "/" + flavor + "/" + size; // Added size & flavors 
     }
 
     @Override

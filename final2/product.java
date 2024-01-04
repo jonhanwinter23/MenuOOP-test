@@ -3,9 +3,9 @@ package final2;
 public abstract class product {
     private static int idCounter = 0;
     private int id;
-    private String name;
+    protected String name;
     protected double price;
-    private String description;
+    protected String description;
 
     public product(String name, double price, String description) 
     {
