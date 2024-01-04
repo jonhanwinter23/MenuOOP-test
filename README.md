@@ -200,11 +200,7 @@ In the `Tea` class, the `getDetails()` method is overridden to include the flavo
 In the `Cake` class, the `getDetails()` method is overridden to include the flavor and size of the `cake` in addition to the details provided by the `getDetails()` method in the `Product` class. This allows for more specific information to be returned for `cake` products.
 
 ### Lamda Expression 
-In the `MenuManagerImp` class, the `searchItem` method uses a lambda expression in the context of a Java Stream to filter and collect items that contain the `itemName`. Here's a breakdown:
-```java
-List<String> foundItems = items.stream()
-    .filter(item -> item.contains(itemName))
-    .collect(Collectors.toList()); ```
+In the `MenuManagerImp` class, the `searchItem` method uses a lambda expression in the context of a Java Stream to filter and collect items that contain the `itemName`.
 
 
 ## Features
