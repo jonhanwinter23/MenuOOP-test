@@ -204,7 +204,7 @@ In the `MenuManagerImp` class, the `searchItem` method uses a lambda expression 
 ```java
 List<String> foundItems = items.stream()
     .filter(item -> item.contains(itemName))
-    .collect(Collectors.toList());
+    .collect(Collectors.toList()); ```
 
 
 ## Features
