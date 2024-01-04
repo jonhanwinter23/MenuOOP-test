@@ -193,9 +193,19 @@ The `Product` class has an abstract method `getDetails()`, which is overridden i
 
 ### Encapsulation
 
-The `Product` and `Tea` classes encapsulate the data (attributes like `id`, `name`, `price`, `description`, and `flavor`) and the operations that can be performed on this data (methods like `toString()` and `getDetails()`). The attributes are declared as private, which means they can only be accessed within the class they are declared. This is a key aspect of encapsulation.
+The `product`, `Tea`, and `Cake` classes encapsulate the data (attributes like `id`, `name`, `price`, `description`, `flavor`, and `size`) and the operations that can be performed on this data (methods like `toString()` and `getDetails()`). The attributes are declared as `private` or `protected`, which means they can only be accessed within the class they are declared or its subclasses. This is a key aspect of encapsulation.
 
-In the `Tea` class, the `getDetails()` method is overridden to include the `flavor` of the tea in addition to the details provided by the `getDetails()` method in the `Product` class. This allows for more specific information to be returned for tea products.
+In the `Tea` class, the `getDetails()` method is overridden to include the flavor of the tea in addition to the details provided by the `getDetails()` method in the `Product` class. This allows for more specific information to be returned for `tea` products.
+
+In the `Cake` class, the `getDetails()` method is overridden to include the flavor and size of the `cake` in addition to the details provided by the `getDetails()` method in the `Product` class. This allows for more specific information to be returned for `cake` products.
+
+### Lamda Expression 
+In the `MenuManagerImp` class, the `searchItem` method uses a lambda expression in the context of a Java Stream to filter and collect items that contain the `itemName`. Here's a breakdown:
+```java
+List<String> foundItems = items.stream()
+    .filter(item -> item.contains(itemName))
+    .collect(Collectors.toList());
+
 
 ## Features
 
