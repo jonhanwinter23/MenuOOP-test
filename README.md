@@ -128,9 +128,7 @@ The `Test` class serves as a simple interactive test application for the Employe
 ## Options
 
 1. **Register a new Barista (Option 1):**
-   - Enter Bar
-
-ista username.
+   - Enter Barista username.
    - Enter Barista password.
    - User credentials are stored in the `credentials.txt` file.
 
