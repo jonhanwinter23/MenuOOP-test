@@ -221,6 +221,5 @@ The program uses file I/O to persist the menu across different runs of the progr
 
 The program uses exception handling to deal with potential I/O errors. If an I/O operation fails (for example, if the file doesn't exist or can't be opened), the program will print an error message and the stack trace of the exception.
 
-## How to Run
-
-To run the program, simply execute the `main` method in the `MenuManagerImp` class. The program will display a menu that allows you to add items, view the menu, purchase items, and exit the program.
+## Static Method
+GitHub Copilot: Static methods in this program are used to perform specific tasks that are not dependent on the state of an object. They can be called directly on the class itself without creating an instance of the class. In this program, the static methods `registerUser` and `authenticateCredentials` are used to register a user and authenticate user credentials, respectively. They are called within the `main` method to perform these tasks.
