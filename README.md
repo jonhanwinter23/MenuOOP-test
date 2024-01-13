@@ -216,10 +216,53 @@ below is simple user cases diagram:
 ## File I/O
 
 The program uses file I/O to persist the menu across different runs of the program. The menu is stored in a text file, and each line in the file represents an item in the menu.
+The program uses file input/output (I/O) operations to read from and write to a file. It uses file I/O for the following reasons:
 
+1. Registering Users: When a new barista or employee is registered, their username and password are written to a file called "credentials.txt" using a FileWriter. This allows the program to store the user information persistently.
+
+2. Authenticating Credentials: When a user tries to log in, the program reads the "credentials.txt" file using a Scanner. It checks if the entered username and password match any of the stored credentials in the file. This allows the program to authenticate the user's credentials.
+
+Overall, file I/O is used to store and retrieve user information, enabling user registration and authentication functionality in the program.
 ## Exception Handling
 
-The program uses exception handling to deal with potential I/O errors. If an I/O operation fails (for example, if the file doesn't exist or can't be opened), the program will print an error message and the stack trace of the exception.
+We uses exception handling to handle potential errors or exceptional situations that may occur during runtime. It helps to ensure that the program can gracefully handle these errors and prevent unexpected crashes or undesired behavior. In this specific code, the program uses exception handling in two places:
 
+1. In the `registerUser` method, the program uses a `try-catch` block to handle `IOException`. This is because writing to a file using `FileWriter` can potentially throw an `IOException` if there are any issues with file I/O operations, such as file not found or permission denied.
+   ```
+   try {
+            FileWriter writer = new FileWriter("credentials.txt", true);
+            writer.write(userType + ":");
+            writer.write(username + "/");
+            writer.write(password);
+            writer.write("\n");
+            writer.close();
+            System.out.println("User registered successfully!");
+        } catch (IOException e) {
+            System.out.println("Failed to register user.");
+            e.printStackTrace();
+        }
+   ```
+3. In the `authenticateCredentials` method, the program uses a `try-catch` block to handle `FileNotFoundException`. This is because reading from a file using `Scanner` can throw a `FileNotFoundException` if the specified file is not found or cannot be opened.
+   ```
+   try {
+            Scanner fileScanner = new Scanner(new File("credentials.txt"));
+            while (fileScanner.hasNextLine()) {
+                String line = fileScanner.nextLine();
+                if (line.contains(username + "/")) {
+                    String passwordLine = fileScanner.nextLine();
+                    if (passwordLine.contains(password)) {
+                        fileScanner.close();
+                        return true;
+                    }
+                }
+            }
+            fileScanner.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Failed to read credentials.");
+            e.printStackTrace();
+        }
+        return false;
+   ```
+By using exception handling, the program can catch and handle these exceptions appropriately, displaying error messages or taking alternative actions when necessary.
 ## Static Method
 GitHub Copilot: Static methods in this program are used to perform specific tasks that are not dependent on the state of an object. They can be called directly on the class itself without creating an instance of the class. In this program, the static methods `registerUser` and `authenticateCredentials` are used to register a user and authenticate user credentials, respectively. They are called within the `main` method to perform these tasks.
